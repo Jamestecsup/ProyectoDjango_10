@@ -1,0 +1,261 @@
+:root {
+  --bg: #f4f6fb;
+  --card: #ffffff;
+  --ink: #0f172a;
+  --muted: #475569;
+  --line: #d6dce8;
+  --primary: #1d4ed8;
+  --danger: #b91c1c;
+  --r1: #0284c7;
+  --r2: #c2410c;
+  --ok: #047857;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+  line-height: 1.45;
+}
+
+.app {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+}
+
+.app-header h1 {
+  margin: 0 0 4px;
+  font-size: 1.9rem;
+}
+
+.app-header p {
+  margin: 4px 0;
+  color: var(--muted);
+}
+
+.app-header .note {
+  font-size: 0.9rem;
+  border-left: 4px solid var(--line);
+  padding-left: 10px;
+}
+
+.inbox h2 {
+  margin: 28px 0 8px;
+  font-size: 1.3rem;
+}
+
+.inbox h3 {
+  margin: 22px 0 10px;
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+.counters {
+  display: flex;
+  gap: 12px;
+  margin: 0 0 14px;
+}
+
+.counters span {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 4px 14px;
+  font-weight: 600;
+}
+
+.search {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-weight: 600;
+}
+
+.search input,
+.hash-confirm input {
+  font: inherit;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.plan-list {
+  display: grid;
+  gap: 12px;
+}
+
+.plan-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-left: 6px solid var(--r1);
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+
+.plan-card-r2 {
+  border-left-color: var(--r2);
+}
+
+.plan-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.plan-card h4 {
+  margin: 0;
+  font-family: Consolas, "Cascadia Mono", monospace;
+  font-size: 1.1rem;
+}
+
+.badge {
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: #e0f2fe;
+  color: #075985;
+}
+
+.plan-card-r2 .badge {
+  background: #ffedd5;
+  color: #9a3412;
+}
+
+.plan-card-fields {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 4px 12px;
+  margin: 10px 0;
+}
+
+.plan-card-fields dt {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.plan-card-fields dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.target {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.target-key {
+  color: var(--muted);
+  font-family: Consolas, "Cascadia Mono", monospace;
+}
+
+code {
+  font-family: Consolas, "Cascadia Mono", monospace;
+  background: #eef2ff;
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+
+.plan-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.hash-confirm {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.hash-confirm label {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.plan-card-verdict {
+  margin: 8px 0 0;
+  font-weight: 700;
+  color: var(--ok);
+}
+
+.btn {
+  font: inherit;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+}
+
+.btn-danger {
+  background: var(--danger);
+  color: #fff;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--line);
+}
+
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.empty {
+  color: var(--muted);
+}
+
+.empty button {
+  font: inherit;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: #fff;
+  cursor: pointer;
+}
+
+.decided-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 6px;
+}
+
+.decided {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px 12px;
+}
+
+.decided-approved strong {
+  color: var(--ok);
+}
+
+.decided-rejected strong {
+  color: var(--danger);
+}
