@@ -3,7 +3,7 @@ import Button from "./Button";
 
 export default function HashConfirm({ hash, onConfirm }) {
   const [typed, setTyped] = useState("");
-  const isValid = typed.includes(hash);
+  const isValid = typed === hash;
 
   return (
     <div className="hash-confirm">
