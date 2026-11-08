@@ -1,16 +1,8 @@
-import { useState } from "react";
 import Button from "./Button";
 import HashConfirm from "./HashConfirm";
-import { VERDICT_LABELS } from "../lib/plans";
 
 export default function PlanCard({ plan, onDecide }) {
-  const [verdict, setVerdict] = useState(null);
   const isDestructive = plan.risk === "R2";
-
-  function handleDecision(value) {
-    setVerdict(value);
-    onDecide(plan.id, value);
-  }
 
   return (
     <article className={`plan-card plan-card-${plan.risk.toLowerCase()}`} aria-label={`Plan ${plan.id}`}>
@@ -38,22 +30,18 @@ export default function PlanCard({ plan, onDecide }) {
         </dd>
       </dl>
 
-      {verdict ? (
-        <p className="plan-card-verdict">Decidido: {VERDICT_LABELS[verdict]}</p>
-      ) : (
-        <div className="plan-card-actions">
-          {isDestructive ? (
-            <HashConfirm hash={plan.plan_hash} onConfirm={() => handleDecision("approved")} />
-          ) : (
-            <Button variant="primary" onClick={() => handleDecision("approved")}>
-              Aprobar
-            </Button>
-          )}
-          <Button variant="ghost" onClick={() => handleDecision("rejected")}>
-            Rechazar
+      <div className="plan-card-actions">
+        {isDestructive ? (
+          <HashConfirm hash={plan.plan_hash} onConfirm={() => onDecide(plan.id, "approved")} />
+        ) : (
+          <Button variant="primary" onClick={() => onDecide(plan.id, "approved")}>
+            Aprobar
           </Button>
-        </div>
-      )}
+        )}
+        <Button variant="ghost" onClick={() => onDecide(plan.id, "rejected")}>
+          Rechazar
+        </Button>
+      </div>
     </article>
   );
 }
