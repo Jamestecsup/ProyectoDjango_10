@@ -11,7 +11,8 @@
 | Alumno | Michael Montgomery Rosell |
 | Docente | Michael Montgomery Rosell |
 | Actividad | DAE - Extra S10 - La bandeja de aprobaciones: estado, eventos y la persona que decide |
-| Repositorio | `github.com/Hellscythe25/dae-s10-bandeja-aprobaciones` |
+| Repositorio de entrega | `github.com/Jamestecsup/ProyectoDjango_10` |
+| Repositorio base | `github.com/Hellscythe25/dae-s10-bandeja-aprobaciones` |
 | Fecha | 07/11/2026 |
 | Entorno | Windows 11 · Node v24.15.0 · npm 11.12.1 · Chrome · VS Code |
 
