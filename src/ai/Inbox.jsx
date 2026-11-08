@@ -47,7 +47,7 @@ export default function Inbox({ plans }) {
         ) : query.trim() !== "" ? (
           <div className="empty">
             <p>No hay planes que coincidan</p>
-            <button type="button" onClick={clearSearch()}>
+            <button type="button" onClick={clearSearch}>
               Limpiar búsqueda
             </button>
           </div>
