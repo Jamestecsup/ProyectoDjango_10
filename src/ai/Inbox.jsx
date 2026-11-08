@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PlanCard from "./PlanCard";
 import { targetLabel, VERDICT_LABELS } from "../lib/plans";
 import { readStoredDecisions, writeStoredDecisions } from "../lib/storage";
@@ -7,10 +7,9 @@ export default function Inbox({ plans }) {
   const [decisions, setDecisions] = useState(() => readStoredDecisions());
   const [query, setQuery] = useState("");
 
+  // Copy, never mutate: React compares references to decide whether to re-render.
   const decide = (id, verdict) => {
-    decisions[id] = verdict;
-    setDecisions(decisions);
-    writeStoredDecisions(decisions);
+    setDecisions((current) => ({ ...current, [id]: verdict }));
   };
 
   const clearSearch = () => setQuery("");
@@ -21,6 +20,11 @@ export default function Inbox({ plans }) {
   const visible = pending.filter(
     (plan) => plan.op.toLowerCase().includes(needle) || targetLabel(plan.target).toLowerCase().includes(needle)
   );
+
+  // Persist after the render that already shows the new decision.
+  useEffect(() => {
+    writeStoredDecisions(decisions);
+  }, [decisions]);
 
   return (
     <section className="inbox" aria-labelledby="inbox-title">
